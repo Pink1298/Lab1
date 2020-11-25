@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //Schema::defaultStringLength(191); //Mặc định độ dài của chuỗi là 191 ký tự
     }
 
     /**
