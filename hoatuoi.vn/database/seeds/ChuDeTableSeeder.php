@@ -17,7 +17,7 @@ class ChuDeTableSeeder extends Seeder {
                        "Hoa chia buồn", "Hoa mừng tân gia", "Hoa mừng khai trương", "Hoa mừng thọ"];
         sort($categories);
 
-        $today = new DateTime('2010-01-01 08:00:00');
+        $today = new DateTime('2020-01-01 08:00:00');
 
         for ($i=1; $i <= count($categories); $i++) {
             array_push($list, [
