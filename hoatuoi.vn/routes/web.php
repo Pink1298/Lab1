@@ -23,4 +23,6 @@ Route::get('/admin/loai/create', 'Backend\LoaiController@create') -> name('admin
 Route::post('/admin/loai/create', 'Backend\LoaiController@store') -> name('admin.loai.store');
 Route::get('/admin/loai/edit/{id}', 'Backend\LoaiController@edit') -> name('admin.loai.edit');
 Route::put('/admin/loai/edit/{id}', 'Backend\LoaiController@update') -> name('admin.loai.update');
+Route::delete('/admin/loai/delete/{id}', 'Backend\LoaiController@destroy') -> name('admin.loai.destroy');
 
+Route::resource('/admin/sanpham', 'Backend\SanPhamController', ['as' => 'admin']);

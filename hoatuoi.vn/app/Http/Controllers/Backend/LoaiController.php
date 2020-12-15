@@ -8,6 +8,7 @@ use App\Loai;
 use Carbon\Carbon;
 use Validator;
 use App\Http\Requests\LoaiCreateRequest;
+use Illuminate\Support\Facades\Session;
 
 class LoaiController extends Controller
 {
@@ -126,5 +127,11 @@ class LoaiController extends Controller
     public function destroy($id)
     {
         //
+        $loai_sp = Loai::where("l_ma",  $id)->first();
+
+        $loai_sp->delete();
+
+        Session::flash('alert-info', 'Xóa loại sản phẩm thành công ^^~!!!');
+        return redirect()->route('admin.loai.index');
     }
 }

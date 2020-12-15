@@ -14,7 +14,7 @@
 
 @section('content')
 <a class = "btn btn-primary" href="{{ route('admin.loai.create')}}"> Thêm mới </a>
-    <table>
+    <table class="table table-striped table-hover">
         <tr>
             <td>Mã loại</td>
             <td>Tên loại</td>
@@ -29,7 +29,17 @@
             <td>{{ $loai -> l_taoMoi }}</td>
             <td>{{ $loai -> l_capNhat }}</td>
             <td> 
-                <a href="{{ route('admin.loai.edit', ['id' => $loai->l_ma]) }}"> Sửa </a>
+            <div class="btn-group col-xs-3">
+             
+                <a href="{{ route('admin.loai.edit', ['id' => $loai->l_ma]) }}" class="btn btn-primary mr-1 rounded">Sửa</a>
+            
+                <form name="frmDelete" method="post" action="{{ route('admin.loai.destroy', ['id' => $loai->l_ma]) }}" class="frmDelete" data-id="{{ $loai->l_ma }}">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <button class="btn btn-danger rounded">Xóa</button>
+                </form>
+             
+            </div>
             </td>
         </tr>
         @endforeach

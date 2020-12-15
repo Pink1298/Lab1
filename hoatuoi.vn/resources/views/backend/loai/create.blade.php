@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         <label for="trangThai"> Trạng thái </label>
-        <select name="l_trangThai" id="l_trangThai">
+        <select class ="form-control" name="l_trangThai" id="l_trangThai">
             <option value="1" {{ old('l_trangThai') == 1 ? 'selected' : ''}}> Khóa </option>
             <option value="2" {{ old('l_trangThai') == 2 ? 'selected' : ''}}> Mở </option>
         </select>
