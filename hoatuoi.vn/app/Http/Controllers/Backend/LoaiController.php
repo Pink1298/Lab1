@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use Validator;
 use App\Http\Requests\LoaiCreateRequest;
 use Illuminate\Support\Facades\Session;
+use App\Exports\LoaiExport;
+use Maatwebsite\Excel\Facades\Excel as Excel;
 
 class LoaiController extends Controller
 {
@@ -21,10 +23,11 @@ class LoaiController extends Controller
     {
         //
         $dsLoai = Loai::all();
+        // dd($dsLoai);
         return view('backend.loai.index')
             ->with('dsLoai', $dsLoai);
     }
-
+// 
     /**
      * Show the form for creating a new resource.
      *
@@ -133,5 +136,27 @@ class LoaiController extends Controller
 
         Session::flash('alert-info', 'Xóa loại sản phẩm thành công ^^~!!!');
         return redirect()->route('admin.loai.index');
+    }
+
+    public function print()
+    {
+        $ds_loai    = Loai::all();
+        return view('backend.loai.print')
+            ->with('dsLoai', $ds_loai);
+    }
+
+     /**
+     * Action xuất Excel
+     */
+    public function excel() 
+    {
+        /* Code dành cho việc debug
+        - Khi debug cần hiển thị view để xem trước khi Export Excel
+        */
+        // $dsLoai    = Loai::all();
+        // return view('backend.loai.excel')
+        //     ->with('dsLoai', $dsLoai);
+
+        return Excel::download(new LoaiExport, 'danhsachloai.xlsx' );
     }
 }

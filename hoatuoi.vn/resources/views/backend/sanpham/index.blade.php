@@ -14,6 +14,9 @@
 
 @section('content')
 <a class = "btn btn-primary" href="{{ route('admin.sanpham.create')}}"> Thêm mới sản phẩm </a>
+<a href="{{ route('admin.sanpham.print') }}" class="btn btn-primary">In ấn</a>
+<a href="{{ route('admin.sanpham.excel') }}" class="btn btn-primary">Xuất Excel</a>
+<a href="{{ route('admin.sanpham.pdf') }}" class="btn btn-primary">Xuất PDF</a>
     <table class="table table-striped table-hover">
         <tr>
             <td>Mã sản phẩm</td>
@@ -35,7 +38,8 @@
             <td>{{ $sp->sp_ten }}</td>
             <td>{{ $sp->sp_giaGoc }}</td>
             <td>{{ $sp->sp_giaBan }}</td>
-            <td>{{ $sp->sp_hinh }}</td>
+            <!-- <td>{{ $sp->sp_hinh }}</td> -->
+            <td><img src="{{ asset('storage/photos/' . $sp->sp_hinh) }}" style="width:120px; height:120px"></img></td>
             <td>{{ $sp->sp_thongTin }}</td>
             <td>{{ $sp->sp_danhGia }}</td>
             <td>{{ $sp->sp_taoMoi }}</td>
